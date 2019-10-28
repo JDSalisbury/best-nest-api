@@ -1,4 +1,4 @@
-# House chore app api.
+# Box Task app api.
 
 Starting Django app
 
@@ -15,6 +15,6 @@ pip install djongo
 Setting up App
 
 ```
-$ python manage.py startapp house
+$ python manage.py startapp box
 
 ```
