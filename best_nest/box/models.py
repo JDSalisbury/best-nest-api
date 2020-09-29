@@ -73,9 +73,9 @@ class Task(models.Model):
     times_completed = models.IntegerField(default=0)
     assigned = models.BooleanField(default=False)
 
-    assigned_to = models.ForeignKey(User, on_delete=models.CASCADE)
+    assigned_to = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     last_completed_by = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='last_tasker')
+        User, on_delete=models.CASCADE, related_name='last_tasker', blank=True)
     box = models.ForeignKey(Box, on_delete=models.CASCADE)
 
     def __str__(self):

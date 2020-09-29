@@ -1,3 +1,5 @@
+
+from .logger import pretty_request
 from django.shortcuts import render
 from .models import *
 from .serializers import *
@@ -14,6 +16,14 @@ class BoxViewSet(viewsets.ModelViewSet):
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
+
+    def get_queryset(self):
+        id = self.request.data.get('id')
+
+        if id:
+            return Task.objects.filter(box=id)
+
+        return self.queryset
 
 
 class UserViewSet(viewsets.ModelViewSet):
