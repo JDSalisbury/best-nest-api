@@ -18,7 +18,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
 
     def get_queryset(self):
-        id = self.request.data.get('id')
+        id = self.request.query_params.get('box')
 
         if id:
             return Task.objects.filter(box=id)
